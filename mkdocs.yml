@@ -1,0 +1,118 @@
+site_name: Megatron-LM 中文文档
+site_description: NVIDIA Megatron-LM 官方文档中文翻译版
+site_url: https://bearneck.github.io/megatron_lm_doc_zn/
+repo_url: https://github.com/bearneck/megatron_lm_doc_zn
+repo_name: bearneck/megatron_lm_doc_zn
+edit_uri: ""
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: zh
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 主页: index.md
+  - 快速开始:
+    - 概览: get-started/overview.md
+    - 安装: get-started/install.md
+    - 快速入门: get-started/quickstart.md
+    - 发布说明: get-started/releasenotes.md
+  - 用户指南:
+    - 概览: user-guide/index.md
+    - 数据准备: user-guide/data-preparation.md
+    - 并行化指南: user-guide/parallelism-guide.md
+    - 训练示例: user-guide/training-examples.md
+    - MSC 集成: user-guide/msc_integration.md
+    - 功能特性:
+      - 概览: user-guide/features/index.md
+      - 上下文并行: user-guide/features/context_parallel.md
+      - 自定义 FSDP: user-guide/features/custom_fsdp.md
+      - 分布式优化器: user-guide/features/dist_optimizer.md
+      - 细粒度激活卸载: user-guide/features/fine_grained_activation_offloading.md
+      - Megatron Energon: user-guide/features/megatron_energon.md
+      - Megatron RL: user-guide/features/megatron_rl.md
+      - 混合专家 (MoE): user-guide/features/moe.md
+      - 多潜在注意力: user-guide/features/multi_latent_attention.md
+      - 多 Token 预测: user-guide/features/multi_token_prediction.md
+      - 优化器 CPU 卸载: user-guide/features/optimizer_cpu_offload.md
+      - 流水线并行布局: user-guide/features/pipeline_parallel_layout.md
+      - 分词器: user-guide/features/tokenizers.md
+  - 模型:
+    - 概览: models/index.md
+    - 大语言模型: models/llms.md
+    - 多模态模型: models/multimodal.md
+    - LLaMA/Mistral: llama_mistral.md
+  - API 指南:
+    - 概览: api-guide/index.md
+    - 核心模块:
+      - 概览: api-guide/core/index.md
+      - 数据集: api-guide/core/datasets.md
+      - 分布式检查点: api-guide/core/dist_checkpointing.md
+      - 检查点策略: api-guide/core/dist_checkpointing.strategies.md
+      - 分布式训练: api-guide/core/distributed.md
+      - 融合算子: api-guide/core/fusions.md
+      - 流水线并行: api-guide/core/pipeline_parallel.md
+      - 张量并行: api-guide/core/tensor_parallel.md
+      - Transformer: api-guide/core/transformer.md
+    - 模型:
+      - 概览: api-guide/models/index.md
+      - 模型总览: api-guide/models/models.md
+      - BERT 模型: api-guide/models/models.bert.md
+      - GPT 模型: api-guide/models/models.gpt.md
+      - T5 模型: api-guide/models/models.t5.md
+    - 内部模块:
+      - 概览: api-guide/internal/index.md
+      - Microbatch 计算器: api-guide/internal/num_microbatches_calculator.md
+      - 优化器参数调度器: api-guide/internal/optimizer_param_scheduler.md
+    - 路由回放: api-guide/router_replay.md
+    - API 向后兼容性: api-backwards-compatibility-check.md
+  - 开发者:
+    - 贡献指南: developer/contribute.md
+    - 生成文档: developer/generate_docs.md
+    - 值班指南: developer/oncall.md
+    - 提交指南: developer/submit.md
+  - 讨论:
+    - 概览: discussions/README.md
+    - Megatron FSDP 用户指南: discussions/megatron-fsdp-user-guide/megatron-fsdp-user-guide.md
+  - 文档说明: documentation.md
+  - 高级主题: advanced/index.md
