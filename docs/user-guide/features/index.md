@@ -10,3 +10,14 @@
 
 关于 Megatron Core 关键能力的高级功能指南。
 
+<!-- nav-links -->
+- [细粒度激活卸载（与 rednote 合作）](fine_grained_activation_offloading/)
+- [混合专家模型](moe/)
+- [context_parallel 包](context_parallel/)
+- [Megatron FSDP](custom_fsdp/)
+- [分布式优化器](dist_optimizer/)
+- [优化器 CPU 卸载](optimizer_cpu_offload/)
+- [自定义流水线模型并行布局](pipeline_parallel_layout/)
+- [Tokenizers](tokenizers/)
+- [Megatron Energon](megatron_energon/)
+- [Megatron RL](megatron_rl/)

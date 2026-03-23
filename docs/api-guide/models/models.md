@@ -13,3 +13,7 @@
 
 ## 子包
 
+<!-- nav-links -->
+- [api-guide/models/models.gpt](models.gpt.md)
+- [api-guide/models/models.bert](models.bert.md)
+- [api-guide/models/models.t5](models.t5.md)

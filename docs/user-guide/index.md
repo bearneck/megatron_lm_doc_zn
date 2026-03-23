@@ -10,3 +10,9 @@
 
 关于使用 Megatron Core 和 Megatron-LM 的全面指南。
 
+<!-- nav-links -->
+- [user-guide/msc_integration](msc_integration/)
+- [数据准备](data-preparation/)
+- [训练示例](training-examples/)
+- [并行策略指南](parallelism-guide/)
+- [高级功能](features/)

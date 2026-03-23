@@ -11,3 +11,6 @@
 
 内部工具 API。
 
+<!-- nav-links -->
+- [Microbatches 计算器](num_microbatches_calculator/)
+- [优化器参数调度器](optimizer_param_scheduler/)

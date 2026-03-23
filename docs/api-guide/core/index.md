@@ -10,3 +10,12 @@
 
 Megatron 核心组件的底层 API 参考。
 
+<!-- nav-links -->
+- [transformer 包](transformer/)
+- [tensor_parallel 包](tensor_parallel/)
+- [pipeline_parallel 包](pipeline_parallel/)
+- [fusions 包](fusions/)
+- [distributed 包](distributed/)
+- [datasets 包](datasets/)
+- [dist_checkpointing 包](dist_checkpointing/)
+- [dist_checkpointing.strategies 包](dist_checkpointing.strategies.md)

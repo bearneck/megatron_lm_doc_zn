@@ -120,3 +120,5 @@ torchrun --nproc_per_node=8 /opt/megatron-lm/pretrain_gpt.py \
 
 ## 子包
 
+<!-- nav-links -->
+- [api-guide/core/dist_checkpointing.strategies](dist_checkpointing.strategies.md)

@@ -11,3 +11,7 @@
 
 Megatron Core 组件的 API 参考文档。
 
+<!-- nav-links -->
+- [模型 API](models/)
+- [核心 API](core/)
+- [内部工具](internal/)

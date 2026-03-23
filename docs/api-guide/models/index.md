@@ -9,3 +9,8 @@
 
 Megatron Core 模型实现的 API 参考。
 
+<!-- nav-links -->
+- [models 包](models/)
+- [models.gpt 包](models.gpt.md)
+- [models.bert 包](models.bert.md)
+- [models.t5 包](models.t5.md)
