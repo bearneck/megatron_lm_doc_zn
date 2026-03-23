@@ -4,6 +4,7 @@ site_url: https://bearneck.github.io/megatron_lm_doc_zn/
 repo_url: https://github.com/bearneck/megatron_lm_doc_zn
 repo_name: bearneck/megatron_lm_doc_zn
 edit_uri: ""
+docs_dir: docs
 
 theme:
   name: material
