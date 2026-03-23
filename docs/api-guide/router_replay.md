@@ -89,7 +89,7 @@ from megatron.core.transformer.moe.moe_utils import topk_routing_with_score_func
 
 rr = RouterReplay()
 
-# 记录模式
+# Record
 RouterReplay.set_global_router_replay_action(RouterReplayAction.RECORD)
 logits = torch.randn(8, 16)
 probs_rec, routing_map_rec = topk_routing_with_score_function(
@@ -98,7 +98,7 @@ probs_rec, routing_map_rec = topk_routing_with_score_function(
 recorded = rr.get_recorded_indices()
 torch.save(recorded, "/tmp/replay.pt")
 
-# 前向重放模式
+# Forward replay
 rr.clear_router_replay_action()
 rr.set_router_replay_action(RouterReplayAction.REPLAY_FORWARD)
 target = torch.load("/tmp/replay.pt")
@@ -124,11 +124,11 @@ from megatron.core.transformer.moe.router import TopKRouter
 from megatron.core.transformer.moe.router_replay import RouterReplay, RouterReplayAction
 
 
-# 初始化分布式训练
+# Initialize distributed training
 if not dist.is_initialized():
     dist.init_process_group(backend="nccl")
 
-# 创建一个启用了 RouterReplay 的 transformer 配置
+# Create a transformer config with RouterReplay enabled
 config = TransformerConfig(
     num_experts=8,
     expert_model_parallel_size=1,
@@ -136,45 +136,45 @@ config = TransformerConfig(
     moe_enable_routing_replay=True
 )
 
-# 创建一个 TopKRouter 实例
+# Create a TopKRouter instance
 router = TopKRouter(config)
 
-# 生成示例输入 (batch_size, sequence_length, hidden_size)
+# Generate sample input (batch_size, sequence_length, hidden_size)
 logits = torch.randn(16, 32, 8).to(torch.cuda.current_device())
 
 # -----------------
-# 1. 记录模式
+# 1. Recording Mode
 # -----------------
-print("=== 记录模式 ===")
-# 设置全局路由器重放动作为 RECORD
+print("=== Recording Mode ===")
+# Set global router replay action to RECORD
 RouterReplay.set_global_router_replay_action(RouterReplayAction.RECORD)
 
-# 执行路由
+# Perform routing
 routing_output = router.forward(logits)
-print(f"记录的 top-k 索引形状: {routing_output.top_k_idx.shape}")
+print(f"Recorded top-k indices shape: {routing_output.top_k_idx.shape}")
 
 # -----------------
-# 2. 前向重放模式
+# 2. Forward Replay Mode
 # -----------------
-print("\n=== 前向重放模式 ===")
-# 将记录的索引保存到文件
+print("\n=== Forward Replay Mode ===")
+# Save recorded indices to a file
 torch.save(routing_output.top_k_idx, "/tmp/replay.pt")
 
-# 从文件加载索引并设置为重放目标
+# Load indices from file and set as target for replay
 replay_indices = torch.load("/tmp/replay.pt")
 for router_instance in RouterReplay.global_router_replay_instances:
     router_instance.target_topk_idx = replay_indices
 
-# 设置全局路由器重放动作为 REPLAY_FORWARD
+# Set global router replay action to REPLAY_FORWARD
 RouterReplay.set_global_router_replay_action(RouterReplayAction.REPLAY_FORWARD)
 
-# 再次执行路由 - 这将使用重放的索引
+# Perform routing again - this will use the replayed indices
 replay_routing_output = router.forward(logits)
-print(f"重放的 top-k 索引形状: {replay_routing_output.top_k_idx.shape}")
-print(f"索引是否相同? {torch.equal(routing_output.top_k_idx, replay_routing_output.top_k_idx)}")
+print(f"Replayed top-k indices shape: {replay_routing_output.top_k_idx.shape}")
+print(f"Are indices the same? {torch.equal(routing_output.top_k_idx, replay_routing_output.top_k_idx)}")
 
 
-# 清理
+# Clean up
 RouterReplay.clear_global_router_replay_action()
 RouterReplay.clear_global_indices()
 RouterReplay.clear_global_router_replay_instances()

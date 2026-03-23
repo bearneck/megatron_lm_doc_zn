@@ -39,7 +39,7 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 分片模型参数、梯度和优化器状态以减少内存占用：
 
 ```bash
-# Megatron FSDP（比 PyTorch FSDP2 快约 15%）
+# Megatron FSDP (~15% faster than PyTorch FSDP2)
 --use-megatron-fsdp \
 --data-parallel-sharding-strategy optim_grads_params
 ```
@@ -54,8 +54,8 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 在 GPU 间分割单个模型层。推荐用于大型隐藏维度。
 
 ```bash
---tensor-model-parallel-size 4  # 4 路张量并行
---sequence-parallel              # 启用序列并行（推荐）
+--tensor-model-parallel-size 4  # 4-way tensor parallelism
+--sequence-parallel              # Enable sequence parallelism (recommended)
 ```
 
 **何时使用：**
@@ -68,8 +68,8 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 在 GPU 间垂直（按深度）分割模型层。
 
 ```bash
---pipeline-model-parallel-size 8              # 8 个流水线阶段
---num-layers-per-virtual-pipeline-stage 4     # 用于负载均衡的虚拟流水线
+--pipeline-model-parallel-size 8              # 8 pipeline stages
+--num-layers-per-virtual-pipeline-stage 4     # Virtual pipeline for load balancing
 ```
 
 **何时使用：**
@@ -82,8 +82,8 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 在 GPU 间分割长序列，以实现高效的长上下文训练。
 
 ```bash
---context-parallel-size 2           # 2 路上下文并行
---cp-comm-type p2p                  # 通信类型
+--context-parallel-size 2           # 2-way context parallelism
+--cp-comm-type p2p                  # Communication type
 ```
 
 **何时使用：**
@@ -97,9 +97,9 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 在混合专家模型中，将专家分布到多个 GPU 上。
 
 ```bash
---expert-model-parallel-size 8  # 8路专家并行
---num-experts 64                # 每个MoE层有64个专家
---moe-grouped-gemm              # 优化专家计算
+--expert-model-parallel-size 8  # 8-way expert parallelism
+--num-experts 64                # 64 experts per MoE layer
+--moe-grouped-gemm              # Optimize expert computation
 ```
 
 **重要提示：** 当将 EP 与 TP 结合使用时，**必须启用序列并行**：
@@ -107,7 +107,7 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 ```bash
 --tensor-model-parallel-size 4
 --expert-model-parallel-size 8
---sequence-parallel  # 使用 TP + EP 时必须启用
+--sequence-parallel  # Required when using TP + EP
 ```
 
 ## 并行策略选择指南
@@ -138,7 +138,7 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 GPU总数计算公式如下：
 
 ```
-GPU总数 = TP × PP × CP × EP × DP
+Total GPUs = TP × PP × CP × EP × DP
 ```
 
 ### 示例：在64个GPU上运行LLaMA-3 70B
@@ -165,9 +165,9 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 启用通信与计算的重叠：
 
 ```bash
---overlap-grad-reduce      # 梯度归约与反向传播重叠
---overlap-param-gather     # 参数收集与前向传播重叠
---tp-comm-overlap          # 重叠TP通信
+--overlap-grad-reduce      # Overlap gradient reduction with backward pass
+--overlap-param-gather     # Overlap parameter gathering with forward pass
+--tp-comm-overlap          # Overlap TP communication
 ```
 
 ### 分布式优化器

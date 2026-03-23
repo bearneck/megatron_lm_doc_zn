@@ -54,7 +54,7 @@ torch.serialization.add_safe_globals([argparse.Namespace])
 
 ```bash
 MODEL_TRAIN_PARAMS=(
-    # 在此处定义模型架构和训练参数
+    # Define model architecture and training parameters here
 )
 OLD_CKPT=/workspace/mcore_ckpt_old
 CONVERTED_CKPT=/workspace/mcore_ckpt_0.15.0
@@ -76,7 +76,7 @@ torchrun --nproc_per_node=8 /opt/megatron-lm/pretrain_gpt.py \
 
 ```bash
 MODEL_TRAIN_PARAMS=(
-    # 在此处定义模型架构和训练参数
+    # Define model architecture and training parameters here
 )
 NEW_CKPT=/workspace/mcore_ckpt_new
 CONVERTED_CKPT=/workspace/mcore_ckpt_0.15.0

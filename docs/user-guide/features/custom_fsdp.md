@@ -96,7 +96,7 @@ Custom FSDP 的设计灵感来源于 PyTorch FSDP [Zhao, Yanli, et al.](https://
 自定义 FSDP 提供了与 PyTorch 的 DistributedDataParallel (DDP) 相同的编程接口，即 FullyShardedDataParallel (FSDP)。例如，您可以按如下方式将 FSDP 应用于模型：
 
 ```python
-# 初始化模型和优化器
+# Initialize model and optimizer
 ddp_config.use_megatron_fsdp = True
 ddp_config.data_parallel_sharding_strategy = "optim_grads_params"
 model = GPTModel(transformer_config)
@@ -109,7 +109,7 @@ model = FullyShardedDataParallel(
 optimizer = torch.optim.AdamW(model.parameters(), lr=lr)
 optimizer = DistributedOptimizer(optimizer, [model], [model.param_and_grad_buffer])
 
-# 训练循环
+# Training loop
 def train_step(inputs, labels):
     optimizer.zero_grad()
     for mbs_input, mbs_label in zip(inputs, labels):
@@ -118,7 +118,7 @@ def train_step(inputs, labels):
         loss.backward()
     optimizer.step()
 
-# 保存和加载模型及优化器状态字典
+# Save and load model and optimizer state dict
 def model_and_optimizer_state_dict():
     state_dict = {
         "model": model.sharded_state_dict(),
@@ -141,7 +141,7 @@ def load_model_and_optimizer_state_dict(state_dict):
 对于使用 FSDP 训练特别大的模型，您可以在 meta 设备上初始化模型。使用 PyTorch 的 `reset_parameters` API，您可以在构建 `ParamAndGradBuffer` 期间逐层初始化模型权重。大多数 PyTorch 原生模块和 TransformerEngine 模块都支持此 API（例如，[PyTorch Linear](https://github.com/pytorch/pytorch/blob/v2.6.0/torch/nn/modules/linear.py#L114), [TE LayerNormLinear](https://github.com/NVIDIA/TransformerEngine/blob/release_v2.0/transformer_engine/pytorch/module/layernorm_linear.py#L1107)）。
 
 ```python
-# 在 meta 设备上初始化模型
+# Initialize model on meta device
 with torch.device("meta"):
     model = GPTModel(config)
 

@@ -15,9 +15,9 @@
 Megatron Core 期望训练数据采用 JSONL（JSON Lines）格式，其中每一行都是一个 JSON 对象：
 
 ```json
-{"text": "您的训练文本在此..."}
-{"text": "另一个训练样本..."}
-{"text": "更多训练数据..."}
+{"text": "Your training text here..."}
+{"text": "Another training sample..."}
+{"text": "More training data..."}
 ```
 
 ## 预处理数据
@@ -74,14 +74,14 @@ python tools/preprocess_data.py \
 
 ```bash
 -----------------------------------
-性能结果（最快 → 最慢）：
-1. 16 个工作进程 → 平均 docs/s：9606.6476
-2. 32 个工作进程 → 平均 docs/s：9275.3284
-3. 8 个工作进程 → 平均 docs/s：9151.9280
-4. 4 个工作进程 → 平均 docs/s：6391.3819
+Performance results (fastest → slowest):
+1. 16 workers → avg. docs/s: 9606.6476
+2. 32 workers → avg. docs/s: 9275.3284
+3. 8 workers → avg. docs/s: 9151.9280
+4. 4 workers → avg. docs/s: 6391.3819
 
 -----------------------------------
-最佳工作进程数是 16，平均预处理 docs/s：9606.6476。
+The most optimal num of workers is 16 with avg. preprocessed docs/s: 9606.6476.
 -----------------------------------
 ```
 
@@ -96,7 +96,7 @@ python tools/preprocess_data.py \
 
 ```bash
 --data-path processed_data \
---split 949,50,1  # 训练/验证/测试集划分
+--split 949,50,1  # Train/validation/test split
 ```
 
 ## 常用分词器

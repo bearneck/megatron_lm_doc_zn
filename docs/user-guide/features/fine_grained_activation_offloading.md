@@ -25,11 +25,11 @@
 
 **使用方法**
 ```bash
-# 启用细粒度激活卸载
+# Enable fine-grained activation offloading
 --fine-grained-activation-offloading
 
-# 指定哪些模块将卸载其输入
-# 选项："attn_norm", "core_attn", "attn_proj", "mlp_norm", "expert_fc1", "moe_act"。
+# Specify which modules are going to offload its input
+# Choices: "attn_norm", "core_attn", "attn_proj", "mlp_norm", "expert_fc1", "moe_act".
 --offload-modules expert_fc1
 ```
 **与细粒度重计算兼容**

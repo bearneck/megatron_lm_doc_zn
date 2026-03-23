@@ -36,8 +36,8 @@ torchrun --nproc_per_node=2 examples/run_simple_mcore_train_loop.py
 每一行应包含一个 `text` 字段：
 
 ```json
-{"text": "你的训练文本在这里..."}
-{"text": "另一个训练样本..."}
+{"text": "Your training text here..."}
+{"text": "Another training sample..."}
 ```
 
 ### 2. 预处理数据

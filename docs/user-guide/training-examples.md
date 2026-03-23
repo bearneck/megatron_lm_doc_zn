@@ -16,7 +16,7 @@
 最简单的入门方式是使用模拟数据的基本训练循环：
 
 ```bash
-# 在 2 个 GPU 上使用模拟数据进行分布式训练
+# Distributed training on 2 GPUs with mock data
 torchrun --nproc_per_node=2 examples/run_simple_mcore_train_loop.py
 ```
 

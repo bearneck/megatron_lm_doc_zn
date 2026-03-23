@@ -61,7 +61,7 @@ tokenizer = MegatronTokenizer.from_pretrained("/path/to/tokenizer")
 ```python
 from megatron.core.tokenizers import MegatronTokenizer
 
-# 为 SentencePiece tokenizer 创建元数据
+# Create metadata for a SentencePiece tokenizer
 MegatronTokenizer.write_metadata(
     tokenizer_path="/path/to/tokenizer.model",
     tokenizer_library="sentencepiece",
@@ -78,7 +78,7 @@ MegatronTokenizer.write_metadata(
 ```python
 from megatron.core.tokenizers import MegatronTokenizer
 
-# 使用自动检测的配置加载
+# Load with auto-detected configuration
 tokenizer = MegatronTokenizer.from_pretrained("/path/to/tokenizer.model")
 ```
 
@@ -115,14 +115,14 @@ from megatron.core.tokenizers.text import MegatronTokenizerText
 
 class CustomTokenizer(MegatronTokenizerText):
     def encode(self, text):
-        # 自定义编码逻辑
+        # Custom encoding logic
         return super().encode(text)
 
     def decode(self, tokens):
-        # 自定义解码逻辑
+        # Custom decoding logic
         return super().decode(tokens)
 
-# 保存包含自定义类的元数据
+# Save metadata with custom class
 MegatronTokenizer.write_metadata(
     tokenizer_path="/path/to/tokenizer.model",
     tokenizer_library="sentencepiece",
@@ -161,7 +161,7 @@ tokenizer = MegatronTokenizer.from_pretrained(
 分词器系统与 Megatron-LM 训练无缝集成：
 
 ```bash
-# 用于测试的空分词器
+# Null tokenizer for testing
 torchrun --nproc_per_node=8 pretrain_gpt.py \
     --tokenizer-type NullTokenizer \
     --vocab-size 131072 \
@@ -169,7 +169,7 @@ torchrun --nproc_per_node=8 pretrain_gpt.py \
 ```
 
 ```bash
-# 带有元数据的 HuggingFace 分词器
+# HuggingFace tokenizer with metadata
 torchrun --nproc_per_node=8 pretrain_gpt.py \
     --tokenizer-type HuggingFaceTokenizer \
     --tokenizer-model meta-llama/Meta-Llama-3-8B \

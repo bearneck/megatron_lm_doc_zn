@@ -48,7 +48,7 @@ pip install megatron-energon
 ```python
 from megatron.energon import get_train_dataset, get_loader, WorkerConfig
 
-# 创建数据集
+# Create dataset
 ds = get_train_dataset(
     '/path/to/dataset',
     batch_size=32,
@@ -56,16 +56,16 @@ ds = get_train_dataset(
     worker_config=WorkerConfig.default_worker_config(),
 )
 
-# 创建加载器并迭代
+# Create loader and iterate
 for batch in get_loader(ds):
-    # 训练步骤
+    # Training step
     pass
 ```
 
 ## 多模态示例
 
 ```python
-# 加载图像-文本数据集
+# Load image-text dataset
 ds = get_train_dataset(
     '/path/to/multimodal/dataset',
     batch_size=32,
@@ -73,9 +73,9 @@ ds = get_train_dataset(
 )
 
 for batch in get_loader(ds):
-    images = batch['image']  # 图像张量
-    texts = batch['text']    # 文本描述
-    # 处理批次
+    images = batch['image']  # Image tensors
+    texts = batch['text']    # Text captions
+    # Process batch
 ```
 
 ## 数据集混合
@@ -98,9 +98,9 @@ blended_ds = Blender([
 
 ```python
 WorkerConfig(
-    num_workers=8,              # 并行工作进程数
-    prefetch_factor=2,          # 每个工作进程预取的批次数量
-    persistent_workers=True,    # 在训练周期之间保持工作进程存活
+    num_workers=8,              # Parallel workers
+    prefetch_factor=2,          # Batches to prefetch per worker
+    persistent_workers=True,    # Keep workers alive between epochs
 )
 ```
 
