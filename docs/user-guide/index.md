@@ -1,7 +1,3 @@
----
-orphan: true
----
-
 <!---
    版权所有 (c) 2022-2026, NVIDIA CORPORATION。保留所有权利。
    NVIDIA CORPORATION 及其许可方保留本软件、相关文档
@@ -14,12 +10,3 @@ orphan: true
 
 关于使用 Megatron Core 和 Megatron-LM 的全面指南。
 
-```{toctree}
-:maxdepth: 2
-
-msc_integration
-data-preparation
-training-examples
-parallelism-guide
-features/index
-```

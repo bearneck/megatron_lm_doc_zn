@@ -6,5 +6,4 @@
    分发本软件及相关文档的行为。
 -->
 
-```{include} ../../megatron/core/MSC_Integration.md
-```
+> *（原文件 `../../megatron/core/MSC_Integration.md` 内容需从完整仓库获取）*

@@ -10,17 +10,3 @@
 
 关于 Megatron Core 关键能力的高级功能指南。
 
-```{toctree}
-:maxdepth: 2
-
-fine_grained_activation_offloading
-moe
-context_parallel
-custom_fsdp
-dist_optimizer
-optimizer_cpu_offload
-pipeline_parallel_layout
-tokenizers
-megatron_energon
-megatron_rl
-```

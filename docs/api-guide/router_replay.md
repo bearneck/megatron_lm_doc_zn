@@ -123,7 +123,6 @@ from megatron.core.transformer.transformer_config import TransformerConfig
 from megatron.core.transformer.moe.router import TopKRouter
 from megatron.core.transformer.moe.router_replay import RouterReplay, RouterReplayAction
 
-
 # Initialize distributed training
 if not dist.is_initialized():
     dist.init_process_group(backend="nccl")
@@ -172,7 +171,6 @@ RouterReplay.set_global_router_replay_action(RouterReplayAction.REPLAY_FORWARD)
 replay_routing_output = router.forward(logits)
 print(f"Replayed top-k indices shape: {replay_routing_output.top_k_idx.shape}")
 print(f"Are indices the same? {torch.equal(routing_output.top_k_idx, replay_routing_output.top_k_idx)}")
-
 
 # Clean up
 RouterReplay.clear_global_router_replay_action()

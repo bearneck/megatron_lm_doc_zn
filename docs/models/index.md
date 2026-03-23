@@ -17,10 +17,3 @@ Megatron Core 支持广泛的单模态语言模型和多模态模型，并针对
 
 有关支持的模型的完整和最新列表，请参阅 [Megatron Bridge 支持的模型列表](https://github.com/NVIDIA-NeMo/Megatron-Bridge?tab=readme-ov-file#supported-models)。
 
-```{toctree}
-:maxdepth: 1
-
-llms
-multimodal
-../llama_mistral
-```

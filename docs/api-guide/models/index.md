@@ -9,11 +9,3 @@
 
 Megatron Core 模型实现的 API 参考。
 
-```{toctree}
-:maxdepth: 2
-
-models
-models.gpt
-models.bert
-models.t5
-```

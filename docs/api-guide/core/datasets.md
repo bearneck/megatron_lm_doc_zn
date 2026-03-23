@@ -9,5 +9,4 @@
 
 # datasets 包
 
-```{include} ../../../megatron/core/datasets/readme.md
-```
+> *（原文件 `../../../megatron/core/datasets/readme.md` 内容需从完整仓库获取）*

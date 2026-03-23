@@ -120,8 +120,3 @@ torchrun --nproc_per_node=8 /opt/megatron-lm/pretrain_gpt.py \
 
 ## 子包
 
-```{toctree}
-:maxdepth: 4
-
-dist_checkpointing.strategies
-```

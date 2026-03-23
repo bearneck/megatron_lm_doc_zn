@@ -11,9 +11,3 @@
 
 内部工具 API。
 
-```{toctree}
-:maxdepth: 2
-
-num_microbatches_calculator
-optimizer_param_scheduler
-```

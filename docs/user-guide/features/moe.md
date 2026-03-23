@@ -9,14 +9,4 @@
 
 # 混合专家模型
 
-```{toctree}
-:maxdepth: 1
-:caption: MoE 特性
-
-multi_token_prediction
-multi_latent_attention
-../../api-guide/router_replay
-```
-
-```{include} ../../../megatron/core/transformer/moe/README.md
-```
+> *（原文件 `../../../megatron/core/transformer/moe/README.md` 内容需从完整仓库获取）*

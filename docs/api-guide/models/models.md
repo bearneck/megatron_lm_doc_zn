@@ -13,10 +13,3 @@
 
 ## 子包
 
-```{toctree}
-:maxdepth: 4
-
-models.gpt
-models.t5
-models.bert
-```

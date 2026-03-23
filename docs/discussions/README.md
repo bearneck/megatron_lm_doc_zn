@@ -1,7 +1,3 @@
----
-orphan: true
----
-
 <!---
    版权所有 (c) 2022-2026, NVIDIA CORPORATION。保留所有权利。
    NVIDIA CORPORATION 及其许可方保留本软件、相关文档

@@ -9,5 +9,4 @@
 
 # 优化器 CPU 卸载
 
-```{include} ../../../megatron/core/optimizer/cpu_offloading/README.md
-```
+> *（原文件 `../../../megatron/core/optimizer/cpu_offloading/README.md` 内容需从完整仓库获取）*

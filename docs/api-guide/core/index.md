@@ -10,15 +10,3 @@
 
 Megatron 核心组件的底层 API 参考。
 
-```{toctree}
-:maxdepth: 2
-
-transformer
-tensor_parallel
-pipeline_parallel
-fusions
-distributed
-datasets
-dist_checkpointing
-dist_checkpointing.strategies
-```

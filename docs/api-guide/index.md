@@ -11,10 +11,3 @@
 
 Megatron Core 组件的 API 参考文档。
 
-```{toctree}
-:maxdepth: 3
-
-models/index
-core/index
-internal/index
-```
