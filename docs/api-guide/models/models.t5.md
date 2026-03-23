@@ -1,9 +1,10 @@
 <!---
-   版权所有 (c) 2022-2026, NVIDIA CORPORATION。保留所有权利。
-   NVIDIA CORPORATION 及其许可方保留本软件、相关文档
-   及其任何修改的所有知识产权和专有权利。
-   未经 NVIDIA CORPORATION 明确许可协议授权，严禁任何使用、
-   复制、披露或分发本软件及相关文档的行为。
+   Copyright (c) 2022-2026, NVIDIA CORPORATION. All rights reserved.
+   NVIDIA CORPORATION and its licensors retain all intellectual property
+   and proprietary rights in and to this software, related documentation
+   and any modifications thereto. Any use, reproduction, disclosure or
+   distribution of this software and related documentation without an express
+   license agreement from NVIDIA CORPORATION is strictly prohibited.
 -->
 
 # models.t5 包

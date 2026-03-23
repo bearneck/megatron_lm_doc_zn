@@ -9,4 +9,4 @@
 
 # models.bert 包
 
-用于训练 BERT 及类似仅编码器（encoder-only）模型的有用包。它可选地包含一个可用于分类任务的二元分类头。
+用于训练 BERT 及类似仅编码器（encoder-only）模型的有用包。它可选地包含一个可用于分类任务的二元分类头（binary head）。
